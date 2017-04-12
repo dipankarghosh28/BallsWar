@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7724D8461E9DF12C00835C67 /* EnemyBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724D8451E9DF12C00835C67 /* EnemyBall.m */; };
 		779FE4641E9DDC1700DCF432 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 779FE4631E9DDC1700DCF432 /* main.m */; };
 		779FE4671E9DDC1700DCF432 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 779FE4661E9DDC1700DCF432 /* AppDelegate.m */; };
 		779FE46D1E9DDC1700DCF432 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 779FE46B1E9DDC1700DCF432 /* Main.storyboard */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7724D8441E9DF12C00835C67 /* EnemyBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyBall.h; sourceTree = "<group>"; };
+		7724D8451E9DF12C00835C67 /* EnemyBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyBall.m; sourceTree = "<group>"; };
 		779FE45F1E9DDC1700DCF432 /* BallsEnemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallsEnemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		779FE4631E9DDC1700DCF432 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		779FE4651E9DDC1700DCF432 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				779FE4651E9DDC1700DCF432 /* AppDelegate.h */,
 				77DAEDF81E9DEAF900AECD4A /* ViewController.h */,
 				77DAEDF91E9DEAF900AECD4A /* ViewController.m */,
+				7724D8441E9DF12C00835C67 /* EnemyBall.h */,
+				7724D8451E9DF12C00835C67 /* EnemyBall.m */,
 				77DAEDFA1E9DEAF900AECD4A /* ViewController.xib */,
 				779FE4661E9DDC1700DCF432 /* AppDelegate.m */,
 				779FE46B1E9DDC1700DCF432 /* Main.storyboard */,
@@ -280,6 +285,7 @@
 				77DAEDFB1E9DEAF900AECD4A /* ViewController.m in Sources */,
 				779FE4671E9DDC1700DCF432 /* AppDelegate.m in Sources */,
 				779FE4641E9DDC1700DCF432 /* main.m in Sources */,
+				7724D8461E9DF12C00835C67 /* EnemyBall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
