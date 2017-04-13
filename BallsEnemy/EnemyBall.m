@@ -37,5 +37,12 @@
         return enemyRedBall;
     }
 }
-
+-(CGPoint)enemyBallSpeed {
+    
+    long randomX = (random()%2+1) ;
+    long randomY = (random()%4+1);
+    CGPoint speed = CGPointMake(randomX , randomY);
+    
+    return speed;
+}
 @end
