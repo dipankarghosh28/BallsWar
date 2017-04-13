@@ -64,4 +64,65 @@ NSMutableArray *speedArray;
     scoreNumber++;
     
 }
+
+-(void) checkCollision{}
+
+-(void)onTimer {
+    
+    [self checkCollision];
+    
+    NSArray *subviews = [self.view subviews];
+    
+    NSUInteger index = 0;
+    for (NSUInteger count=0; count <subviews.count; count++) {
+        
+        UIView *view = subviews[count];
+        
+        if ([view isKindOfClass: [UIImageView class]] && (view != self.player)) {
+            
+            CGPoint posistion = [speedArray[index] CGPointValue];
+            
+            view.center = CGPointMake(view.center.x + posistion.x, view.center.y + posistion.y);    //movement of the enemyball
+            
+            if (view.center.x > self.view.frame.size.width || view.center.x <0) {  //when it hits the boundary condtion. Enemyball will move negaitve value.
+                
+                CGPoint tempSpeed = CGPointMake(-posistion.x, posistion.y);
+                [speedArray replaceObjectAtIndex:index withObject:[NSValue valueWithCGPoint:tempSpeed]];
+            }
+            
+            if (view.center.y > self.view.frame.size.height || view.center.y < 0) {
+                
+                CGPoint tempSpeed = CGPointMake(posistion.x, -posistion.y);
+                [speedArray replaceObjectAtIndex:index withObject:[NSValue valueWithCGPoint:tempSpeed]];
+            }
+            
+            NSUInteger indexAnotherView = 0;
+            for (NSUInteger num = 0; num<subviews.count; num++) {
+                
+                UIView *anotherView = subviews[num];
+                
+                if ([anotherView isKindOfClass:[UIImageView class]] && (anotherView != self.player) && (anotherView != view)) {
+                    
+                    if (CGRectIntersectsRect(anotherView.frame, view.frame)) { //checking the collision between enemyballs && condition to make sure they are not the same view
+                        /********************Check how they intersect here**************************/
+                        
+                        //deflection of anotherView
+                        CGPoint anotherViewPosition = [speedArray[indexAnotherView] CGPointValue];
+                        CGPoint tempAnotherViewSpeed = CGPointMake(-anotherViewPosition.x, -anotherViewPosition.y);
+                        [speedArray replaceObjectAtIndex:indexAnotherView withObject:[NSValue valueWithCGPoint:tempAnotherViewSpeed]];
+                        
+                        //deflecton of view
+                        CGPoint posistion = [speedArray[index] CGPointValue];                 //something wrong with this index
+                        CGPoint tempViewSpeed = CGPointMake(-posistion.x, -posistion.y);
+                        [speedArray replaceObjectAtIndex:index withObject:[NSValue valueWithCGPoint:tempViewSpeed]];
+                    }
+                    indexAnotherView++;
+                }
+            }
+            
+            index++;
+        }
+    }
+}
+
 @end
