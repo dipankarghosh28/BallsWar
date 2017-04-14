@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import "EnemyBall.h"
-
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 @interface ViewController ()
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
@@ -17,7 +18,7 @@
 @end
 
 NSMutableArray *speedArray;
-
+AVAudioPlayer *audioPlayer;
 @implementation ViewController
 
 #define MovingObjectRadius 22
@@ -53,6 +54,35 @@ NSMutableArray *speedArray;
     speedArray = [[NSMutableArray alloc]init];
 }
 
+-(IBAction)sound {
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"Buzz"
+                                                              ofType:@"mp3"];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+    audioPlayer.numberOfLoops = -1;
+    [audioPlayer play];
+    
+}
+
+-(IBAction)about {
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"Buzz"
+                                                              ofType:@"mp3"];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+    audioPlayer.numberOfLoops = -1;
+    [audioPlayer play];
+    
+}
+-(IBAction)test {
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"Buzz"
+                                                              ofType:@"mp3"];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+    audioPlayer.numberOfLoops = -1;
+    [audioPlayer play];
+    
+}
+
 -(void)addMoreBall {
     
     EnemyBall *addmoreClass = [[EnemyBall alloc]init];
@@ -60,7 +90,6 @@ NSMutableArray *speedArray;
     CGPoint tempPos =  addmoreClass.enemyBallSpeed;
     [speedArray addObject:[NSValue valueWithCGPoint:tempPos]];
     NSLog(@"%@",NSStringFromCGPoint(tempPos));
-    
     scoreNumber++;
     
 }
