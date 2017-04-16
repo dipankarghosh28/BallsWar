@@ -15,6 +15,9 @@
 @interface ViewController : UIViewController {
     
     IBOutlet UIButton *startButton;
+     IBOutlet UIButton *soundButton;
+     IBOutlet UIButton *aboutButton;
+     IBOutlet UIButton *testButton;
     NSTimer *randomMain;
     NSTimer *addMoreBall;
     IBOutlet UILabel *highScoreLabel;
@@ -26,7 +29,9 @@
 
 -(IBAction)start;
 
-
+-(IBAction)sound;
+-(IBAction)about;
+-(IBAction)test;
 
 @end
 

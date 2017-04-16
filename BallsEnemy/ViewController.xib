@@ -11,9 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
+                <outlet property="aboutButton" destination="3hh-JT-C7v" id="NmH-hw-GbA"/>
                 <outlet property="highScore" destination="gtB-Go-HEz" id="lf4-WA-gZ2"/>
                 <outlet property="highScoreLabel" destination="TeM-W5-puV" id="hIO-Od-Y57"/>
+                <outlet property="soundButton" destination="du8-o1-lJ5" id="quW-c5-lYf"/>
                 <outlet property="startButton" destination="xjQ-MU-tXj" id="eco-tP-k7K"/>
+                <outlet property="testButton" destination="fjZ-M4-Dj3" id="ZSY-59-pai"/>
                 <outlet property="view" destination="B5f-6E-Ug1" id="m8N-MP-Www"/>
             </connections>
         </placeholder>
@@ -22,8 +25,12 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="V0M-Fw-Ofd">
+                    <rect key="frame" x="-17" y="-16" width="405" height="699"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjQ-MU-tXj">
-                    <rect key="frame" x="170.5" y="318.5" width="34" height="30"/>
+                    <rect key="frame" x="170" y="318" width="34" height="30"/>
                     <state key="normal" title="Start">
                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -47,16 +54,25 @@
                     <rect key="frame" x="165" y="356" width="44" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Sound"/>
+                    <connections>
+                        <action selector="sound" destination="-1" eventType="touchUpInside" id="wMt-Dj-NF2"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hh-JT-C7v">
                     <rect key="frame" x="168" y="394" width="42" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="About"/>
+                    <connections>
+                        <action selector="about" destination="-1" eventType="touchUpInside" id="ig6-46-gvf"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjZ-M4-Dj3">
                     <rect key="frame" x="174" y="432" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Test"/>
+                    <connections>
+                        <action selector="test" destination="-1" eventType="touchUpInside" id="ixz-FW-FaJ"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -108,7 +124,10 @@
                     <include reference="ylV-ZH-SPd"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="341" y="289"/>
+            <point key="canvasLocation" x="340.5" y="288.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="background.png" width="350" height="181"/>
+    </resources>
 </document>

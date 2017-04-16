@@ -35,6 +35,14 @@ AVAudioPlayer *audioPlayer;
     [highScore setHidden:YES];
     [highScoreLabel setHidden:YES];
     
+    [soundButton setHidden:YES];
+    [aboutButton setHidden:YES];
+    [testButton setHidden:YES];
+    [textField setHidden:YES];
+    
+    [highScore setHidden:YES];
+    [highScoreLabel setHidden:YES];
+    
     scoreNumber = 0;
     
     randomMain = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(onTimer) userInfo:nil repeats:YES];
@@ -52,7 +60,7 @@ AVAudioPlayer *audioPlayer;
 }
 
 -(IBAction)sound {
-    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"Buzz"
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"music"
                                                               ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
@@ -61,14 +69,26 @@ AVAudioPlayer *audioPlayer;
     
 }
 
+UITextField *textField;
 -(IBAction)about {
-    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"Buzz"
-                                                              ofType:@"mp3"];
-    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
-    audioPlayer.numberOfLoops = -1;
-    [audioPlayer play];
     
+    textField = [[UITextField  alloc] initWithFrame:
+                              CGRectMake(20, 50, 280, 30)];
+    
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    textField.contentVerticalAlignment =
+    UIControlContentVerticalAlignmentCenter;
+    [textField setFont:[UIFont boldSystemFontOfSize:12]];
+    
+    textField.placeholder = @"Save players ball from enemy ball";
+    
+    
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    
+    [self.view addSubview:textField];
+    
+    // sets the delegate to the current class
+    textField.delegate = self;
 }
 -(IBAction)test {
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"Buzz"
