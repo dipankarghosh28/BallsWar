@@ -94,8 +94,6 @@ AVAudioPlayer *audioPlayer;
     
 }
 
--(void) checkCollision{}
-
 -(void)onTimer {
     
     [self checkCollision];
@@ -153,5 +151,68 @@ AVAudioPlayer *audioPlayer;
         }
     }
 }
+
+-(void)checkCollision {
+    
+    NSArray *subview = [self.view subviews];
+    
+    //check collision for all the enemy balls
+    for (UIView *viewInSub in subview) {
+        
+        if ([viewInSub isKindOfClass:[UIImageView class]] && (viewInSub != self.player)) {
+            
+            if (CGRectIntersectsRect(self.player.frame, viewInSub.frame)) {                  //Perform these once player intersects with any enemy
+                
+                [randomMain invalidate];
+                [startButton setHidden:NO];
+                [highScoreLabel setHidden:NO];
+                [highScore setHidden:NO];
+                [self.motionManager stopAccelerometerUpdates];
+                [addMoreBall invalidate];
+                [self removeSubView];
+                
+                //Display ScoreNumber first
+                [highScoreLabel setText:[NSString stringWithFormat:@"Score"]];
+                [highScore setText:[NSString stringWithFormat:@"%d",scoreNumber]];
+                
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"You Lost" message:@"You are hit. Try Again!" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+                [alert show];
+                
+                
+            }
+        }
+    }
+}
+
+
+//This isn't working.
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 0) {
+        NSLog(@"This is performed");
+        [highScoreLabel setText:[NSString stringWithFormat:@"High Score"]];
+        
+        //display the highscore values
+        if (scoreNumber > highScoreNumber) {
+            [[NSUserDefaults standardUserDefaults]setInteger:scoreNumber forKey:@"highScoreSaved"];
+        }
+        
+        highestScoreNumber = [[NSUserDefaults standardUserDefaults] integerForKey:@"highScoreSaved"];
+        [highScore setText: [NSString stringWithFormat:@"%li",(long)highestScoreNumber]];
+    }
+    
+}
+
+
+-(void)removeSubView {
+    NSArray *subViews = [self.view subviews];
+    for (UIView *view in subViews) {
+        if ([view isKindOfClass:[UIImageView class]]) { //remove enemy and player balls. Once start button is pressed, player ball will be added in.
+            [view removeFromSuperview];
+        }
+    }
+}
+
+///////////////////////
 
 @end
