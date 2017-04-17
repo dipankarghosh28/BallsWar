@@ -17,6 +17,7 @@
                 <outlet property="soundButton" destination="du8-o1-lJ5" id="quW-c5-lYf"/>
                 <outlet property="startButton" destination="xjQ-MU-tXj" id="eco-tP-k7K"/>
                 <outlet property="testButton" destination="fjZ-M4-Dj3" id="ZSY-59-pai"/>
+                <outlet property="txtf" destination="apu-56-Lak" id="LQM-0n-B1d"/>
                 <outlet property="view" destination="B5f-6E-Ug1" id="m8N-MP-Www"/>
             </connections>
         </placeholder>
@@ -74,8 +75,16 @@
                         <action selector="test" destination="-1" eventType="touchUpInside" id="ixz-FW-FaJ"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Save player ball from enemy ball" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apu-56-Lak">
+                    <rect key="frame" x="87" y="57" width="229" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="0.76400582900000003" blue="0.2552091574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.76400582901554404" blue="0.25520915741008965" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="TeM-W5-puV" firstAttribute="leading" secondItem="gtB-Go-HEz" secondAttribute="trailing" constant="-61" id="05q-VC-tVN"/>
                 <constraint firstItem="TeM-W5-puV" firstAttribute="centerX" secondItem="B5f-6E-Ug1" secondAttribute="centerX" id="Dc8-pB-Ajt"/>

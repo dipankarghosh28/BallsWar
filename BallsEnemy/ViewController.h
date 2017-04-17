@@ -18,6 +18,7 @@
      IBOutlet UIButton *soundButton;
      IBOutlet UIButton *aboutButton;
      IBOutlet UIButton *testButton;
+    IBOutlet UITextField *txtf;
     NSTimer *randomMain;
     NSTimer *addMoreBall;
     IBOutlet UILabel *highScoreLabel;

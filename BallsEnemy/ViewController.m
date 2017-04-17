@@ -25,6 +25,7 @@ AVAudioPlayer *audioPlayer;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [txtf setHidden:YES];
        highScoreNumber = [[NSUserDefaults standardUserDefaults]integerForKey:@"highScoreSaved"];
     
 }
@@ -34,7 +35,7 @@ AVAudioPlayer *audioPlayer;
     [startButton setHidden:YES];
     [highScore setHidden:YES];
     [highScoreLabel setHidden:YES];
-    
+     [txtf setHidden:NO];
     [soundButton setHidden:YES];
     [aboutButton setHidden:YES];
     [testButton setHidden:YES];
@@ -72,23 +73,24 @@ AVAudioPlayer *audioPlayer;
 UITextField *textField;
 -(IBAction)about {
     
-    textField = [[UITextField  alloc] initWithFrame:
-                              CGRectMake(20, 50, 280, 30)];
-    
-    textField.borderStyle = UITextBorderStyleRoundedRect;
-    textField.contentVerticalAlignment =
-    UIControlContentVerticalAlignmentCenter;
-    [textField setFont:[UIFont boldSystemFontOfSize:12]];
-    
-    textField.placeholder = @"Save players ball from enemy ball";
-    
-    
-    textField.leftViewMode = UITextFieldViewModeAlways;
-    
-    [self.view addSubview:textField];
-    
-    // sets the delegate to the current class
-    textField.delegate = self;
+    [txtf setHidden:NO];
+//    textField = [[UITextField  alloc] initWithFrame:
+//                              CGRectMake(20, 50, 280, 30)];
+//    
+//    textField.borderStyle = UITextBorderStyleRoundedRect;
+//    textField.contentVerticalAlignment =
+//    UIControlContentVerticalAlignmentCenter;
+//    [textField setFont:[UIFont boldSystemFontOfSize:12]];
+//    
+//    textField.placeholder = @"Save players ball from enemy ball";
+//    
+//    
+//    textField.leftViewMode = UITextFieldViewModeAlways;
+//    
+//    [self.view addSubview:textField];
+//    
+//    // sets the delegate to the current class
+//    textField.delegate = self;
 }
 -(IBAction)test {
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"Buzz"
@@ -106,7 +108,7 @@ UITextField *textField;
     [self.view addSubview: addmoreClass.addEnemyBallFromClass];
     CGPoint tempPos =  addmoreClass.enemyBallSpeed;
     [speedArray addObject:[NSValue valueWithCGPoint:tempPos]];
-    NSLog(@"%@",NSStringFromCGPoint(tempPos));
+ //   NSLog(@"%@",NSStringFromCGPoint(tempPos));
     scoreNumber++;
     
 }
@@ -174,6 +176,8 @@ UITextField *textField;
             if (CGRectIntersectsRect(self.player.frame, viewInSub.frame)) {
                 [randomMain invalidate];
                 [startButton setHidden:NO];
+                [aboutButton setHidden:NO];
+                [soundButton setHidden:NO];
                 [highScoreLabel setHidden:NO];
                 [highScore setHidden:NO];
                 [self.motionManager stopAccelerometerUpdates];
@@ -197,7 +201,7 @@ UITextField *textField;
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if (buttonIndex == 0) {
-        NSLog(@"This is performed");
+   //     NSLog(@"This is performed");
         [highScoreLabel setText:[NSString stringWithFormat:@"High Score"]];
        
         if (scoreNumber > highScoreNumber) {
@@ -231,10 +235,10 @@ UITextField *textField;
         NSOperationQueue *queue = [[NSOperationQueue alloc]init];
         [self.motionManager startAccelerometerUpdatesToQueue:queue withHandler:^(CMAccelerometerData * accelerometerData, NSError * _Nullable error) {
             
-            NSLog(@"X = %0.4f, Y = %.04f, Z = %0.4f",
-                  accelerometerData.acceleration.x,
-                  accelerometerData.acceleration.y,
-                  accelerometerData.acceleration.z);
+//            NSLog(@"X = %0.4f, Y = %.04f, Z = %0.4f",
+//                  accelerometerData.acceleration.x,
+//                  accelerometerData.acceleration.y,
+//                  accelerometerData.acceleration.z);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
@@ -267,7 +271,7 @@ UITextField *textField;
             });
         }];
     } else{
-        NSLog(@"Not Active.");
+   //     NSLog(@"Not Active.");
     }
 }
 
