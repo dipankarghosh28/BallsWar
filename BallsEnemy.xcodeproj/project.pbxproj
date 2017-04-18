@@ -245,6 +245,7 @@
 				TargetAttributes = {
 					779FE45E1E9DDC1700DCF432 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4577HC2F73;
 						ProvisioningStyle = Automatic;
 					};
 					779FE4771E9DDC1700DCF432 = {
@@ -468,7 +469,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4577HC2F73;
 				INFOPLIST_FILE = BallsEnemy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BallsEnemy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -479,7 +482,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4577HC2F73;
 				INFOPLIST_FILE = BallsEnemy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BallsEnemy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
