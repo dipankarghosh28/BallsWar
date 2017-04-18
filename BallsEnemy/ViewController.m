@@ -21,7 +21,7 @@ NSMutableArray *speedArray;
 AVAudioPlayer *audioPlayer;
 @implementation ViewController
 
-#define MovingObjectRadius 22
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -224,56 +224,6 @@ UITextField *textField;
     }
 }
 
--(void)startAcceleratorForPlayer {
-    
-    self.motionManager = [[CMMotionManager alloc]init];
-    
-    self.motionManager.accelerometerUpdateInterval = 0.01;
-    
-    if ([self.motionManager isAccelerometerAvailable]) {
-        
-        NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-        [self.motionManager startAccelerometerUpdatesToQueue:queue withHandler:^(CMAccelerometerData * accelerometerData, NSError * _Nullable error) {
-            
-//            NSLog(@"X = %0.4f, Y = %.04f, Z = %0.4f",
-//                  accelerometerData.acceleration.x,
-//                  accelerometerData.acceleration.y,
-//                  accelerometerData.acceleration.z);
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                float valueX = accelerometerData.acceleration.x * 30.0;
-                float valueY = accelerometerData.acceleration.y * 30.0;
-                
-                int intPlayerNewPosX = (int)(self.player.center.x + valueX);
-                int intPlayerNewPosY = (int)(self.player.center.y - valueY);
-                
-               
-                if (intPlayerNewPosX > (self.view.frame.size.width - MovingObjectRadius)) {
-                    intPlayerNewPosX = (self.view.frame.size.width - MovingObjectRadius);
-                }
-                
-                if (intPlayerNewPosX < (0 + MovingObjectRadius)) {
-                    intPlayerNewPosX = (0 + MovingObjectRadius);
-                }
-                
-                if (intPlayerNewPosY > (self.view.frame.size.height - MovingObjectRadius)) {
-                    intPlayerNewPosY = (self.view.frame.size.height - MovingObjectRadius);
-                }
-                
-                if (intPlayerNewPosY < (0 + MovingObjectRadius)) {
-                    intPlayerNewPosY = (0+ MovingObjectRadius);
-                }
-                
-                CGPoint playerNewPoint = CGPointMake(intPlayerNewPosX, intPlayerNewPosY);
-                self.player.center = playerNewPoint;
-                
-            });
-        }];
-    } else{
-   //     NSLog(@"Not Active.");
-    }
-}
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch *myTouch = [[event allTouches]anyObject];

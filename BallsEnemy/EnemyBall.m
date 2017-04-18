@@ -19,12 +19,12 @@
     int randomBool = rand()%2;
     
     if ((BOOL)randomBool) {
-        UIImageView *enemyRedBall = [[UIImageView alloc]initWithFrame:CGRectMake(rand()%myViewWidth, 0, 44, 44)];
+        UIImageView *enemyRedBall = [[UIImageView alloc]initWithFrame:CGRectMake(rand()%myViewWidth, 0, 33, 33)];
         UIImage *enemyImage = [UIImage imageNamed:@"enemyball"];
         enemyRedBall.image = enemyImage;
         return enemyRedBall;
     }else{
-        UIImageView *enemyRedBall = [[UIImageView alloc]initWithFrame:CGRectMake(0, rand()%myViewHeight, 44, 44)];
+        UIImageView *enemyRedBall = [[UIImageView alloc]initWithFrame:CGRectMake(0, rand()%myViewHeight, 22, 22)];
         UIImage *enemyImage = [UIImage imageNamed:@"enemyball"];
         enemyRedBall.image = enemyImage;
         return enemyRedBall;
